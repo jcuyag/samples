@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<form action="{% url 'register'  %}" method="post"></form>
-
+    {% crispy form %}
 {% endblock  %}

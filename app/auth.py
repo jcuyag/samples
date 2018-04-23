@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 
+from .forms import RegisterForm
 
 def login(request):
     if request.method == 'GET':
@@ -34,4 +35,4 @@ def logout(request):
 
 
 def register(request):
-        
+    return render(request, 'auth/register.html', {'form': RegisterForm()})
