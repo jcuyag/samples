@@ -2,5 +2,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    {% crispy form %}
+    <div class="container col-md-4">
+        <h1 class="h3 mb-3 font-weight-bold">Register</h1>
+        {% crispy form %}
+        {% comment %} <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
+    </div>
 {% endblock  %}

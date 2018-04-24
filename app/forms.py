@@ -14,14 +14,14 @@ class RegisterForm(forms.Form):
 
 
     helper = FormHelper()
-    helper.form_class = 'form-horizontal'
+    helper.form_class = 'form-group'
     helper.layout = Layout(
-                            Field('username', css_class='input-xlarge'),
-                            Field('email', css_class='input-xlarge'),
-                            Field('password', css_class='input-xlarge'),
-                            Field('confirm_password', css_class='input-xlarge'),
+                            Field('username', css_class='form-control'),
+                            Field('email', css_class='form-control'),
+                            Field('password', css_class='form-control'),
+                            Field('confirm_password', css_class='form-control'),
                             FormActions(
-                                        Submit('save_changes', 'Save changes', css_class='btn-primary'),
+                                        Submit('save_changes', 'Save changes', css_class='btn btn-primary'),
                                         Submit('cancel', 'Cancel'),
                                        )
                           )
