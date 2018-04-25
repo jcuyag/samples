@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.http import HttpResponse, Http404
+from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm
 
@@ -35,4 +37,26 @@ def logout(request):
 
 
 def register(request):
-    return render(request, 'auth/register.html', {'form': RegisterForm()})
+    return render(request, 'auth/register.html', {'form': RegisterForm()}) 
+
+@login_required
+def registered(request):
+
+
+    if request.method == 'POST':
+        _form = RegisterForm(request.POST)
+
+        if _form.is_valid():
+            print(_form.cleaned_data)
+
+            pass1 = _form.cleaned_data.get('password')
+            pass2 = _form.cleaned_data.get('confirm_password')
+
+            if pass1 == pass2:
+
+                # __form = dir(_form)
+                return HttpResponse('success')
+            else:
+                raise Http404('Password did not match')
+
+    raise Http404('ERROR')

@@ -6,6 +6,12 @@ def index(request):
     return render(request, 'index.html')
 
 
+
+# def registered(request):
+
+#     if request.method == 'POST':
+        
+
 # def register(request):
 
 #     if request.method == 'GET':
